@@ -40,6 +40,8 @@ Utiliser ce menu pour :
 | `11_bonus_complexite.md` | Complexité algorithmique (avant-goût Terminale) | 15 min | ★★★ | Juste après l'ex. 5, si le temps le permet |
 | `12_bonus_sql.md` | SQL / bases de données | 15 min | ★★ | Pour aussi raviver le volet « données en tables » du programme |
 | `13_bonus_synthese_mini_projet.py` | Mini-projet pendu (synthèse) | 20-25 min | ★★★ | Fin de séance s'il reste du temps, ou défi à la maison |
+| `14_bonus_algo_glouton.py` | Algorithmes gloutons (rendu de monnaie, sélection d'activités) | 20 min | ★★★ | Élève très à l'aise, ouverture Terminale (avec l'ex. 10 ou 11) |
+| `15_bonus_algo_glouton_limites.md` | Limites des algorithmes gloutons (sac à dos 0/1) | 10-15 min | ★★★ | Juste après l'ex. 14, pour discuter à l'oral des limites du glouton |
 
 ## Exemples de combinaisons selon le profil
 
@@ -49,8 +51,13 @@ Utiliser ce menu pour :
   (1 → 2 → 3 → 4 → 5 → bilan).
 - **Élève à l'aise / va vite** : Socle 1 → 2 → 3 → 4 → 5 → `11_bonus_complexite`
   ou `10_bonus_recursivite_decouverte` en ouverture sur la Terminale.
+- **Élève très à l'aise / veut voir plus loin** : Socle complet → `14_bonus_algo_glouton`
+  → `15_bonus_algo_glouton_limites` (les deux s'enchaînent bien pour une vraie
+  ouverture sur la Terminale, mais comptent ~30-35 min à eux deux : à réserver
+  aux séances où le socle a été bouclé rapidement).
 - **Séance suivante (approfondissement)** : `06_fonctions`, `08_bonus_dictionnaires`,
-  `12_bonus_sql`, `13_bonus_synthese_mini_projet`.
+  `12_bonus_sql`, `13_bonus_synthese_mini_projet`, `14_bonus_algo_glouton` +
+  `15_bonus_algo_glouton_limites`.
 
 ## Conseils pédagogiques
 
