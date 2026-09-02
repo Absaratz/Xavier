@@ -62,6 +62,25 @@ Add these after `flutter create` regenerates the platform projects:
 - **`lib/data/`** — bundled preset rulesets (`assets/rulesets/*.json`) and
   local persistence for user-created ones.
 
+## Releasing
+
+Pushing a tag matching `v*.*.*` (e.g. `v0.1.0`) triggers
+`.github/workflows/release.yml`, which builds a release APK and App Bundle
+and attaches them to a new GitHub Release named after the tag:
+
+```
+git tag v0.1.0
+git push origin v0.1.0
+```
+
+The workflow builds Android only for now — it currently signs with
+Flutter's default debug keystore, so the APK installs fine for sideloading
+but isn't suitable for a Play Store upload as-is. Play Store submission
+needs a real upload keystore stored as repo secrets; an iOS build needs a
+macOS runner plus Apple signing credentials as secrets. Both are follow-ups
+once you're ready to publish to a store rather than just cutting test
+builds.
+
 ## Tests
 
 - `test/` — unit tests for the rule engine, model JSON round-trips, and the

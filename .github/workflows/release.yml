@@ -1,0 +1,70 @@
+name: Release
+
+# Fires when a version tag (e.g. v1.2.3) is pushed, independent of which
+# branch it points at. Builds card_lan_app in release mode and publishes
+# the APK + App Bundle as assets on a new GitHub Release named after the tag.
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+defaults:
+  run:
+    working-directory: card_lan_app
+
+jobs:
+  build-android:
+    name: Build Android release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Read version from tag
+        id: version
+        run: |
+          TAG="${GITHUB_REF#refs/tags/}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "version=${TAG#v}" >> "$GITHUB_OUTPUT"
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      # android/ (and ios/) aren't committed yet — see card_lan_app/README.md.
+      # This fills them in on the runner without touching lib/ or pubspec.yaml,
+      # so the workflow builds today even before those folders are checked in.
+      - name: Ensure platform folders exist
+        run: flutter create --platforms=android --project-name card_lan_app .
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build release APK
+        run: |
+          flutter build apk --release \
+            --build-name=${{ steps.version.outputs.version }} \
+            --build-number=${{ github.run_number }}
+
+      - name: Build release App Bundle
+        run: |
+          flutter build appbundle --release \
+            --build-name=${{ steps.version.outputs.version }} \
+            --build-number=${{ github.run_number }}
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ steps.version.outputs.tag }}
+          name: Card LAN ${{ steps.version.outputs.tag }}
+          files: |
+            card_lan_app/build/app/outputs/flutter-apk/app-release.apk
+            card_lan_app/build/app/outputs/bundle/release/app-release.aab
