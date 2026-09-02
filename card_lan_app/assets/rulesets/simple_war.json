@@ -1,0 +1,20 @@
+{
+  "id": "simple_war",
+  "name": "Simple War",
+  "description": "Each player flips a card; highest rank wins the trick.",
+  "minPlayers": 2,
+  "maxPlayers": 2,
+  "bricks": [
+    {
+      "id": "brick_skip_on_jack",
+      "label": "Jack skips the next player",
+      "trigger": { "type": "onCardPlayed", "params": {} },
+      "conditions": [
+        { "type": "cardRankEquals", "params": { "rank": "J" } }
+      ],
+      "effects": [
+        { "type": "skipNextPlayer", "params": {} }
+      ]
+    }
+  ]
+}

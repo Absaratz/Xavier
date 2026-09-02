@@ -1,0 +1,49 @@
+name: card_lan_app
+description: Cross-platform (Android & iOS) LAN card game app with a composable rules engine.
+publish_to: "none"
+version: 0.1.0+1
+
+environment:
+  sdk: ">=3.3.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.6
+
+  # State management
+  provider: ^6.1.2
+
+  # Networking: host-side HTTP/WebSocket server (works on Android & iOS)
+  shelf: ^1.4.1
+  shelf_web_socket: ^2.0.0
+  web_socket_channel: ^2.4.0
+
+  # Discovery / pairing
+  qr_flutter: ^4.1.0
+  mobile_scanner: ^5.1.1
+  network_info_plus: ^5.0.3
+  permission_handler: ^11.3.1
+
+  # Data / persistence
+  path_provider: ^2.1.3
+  shared_preferences: ^2.2.3
+  uuid: ^4.4.0
+
+  # JSON modeling
+  json_annotation: ^4.9.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  integration_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+  build_runner: ^2.4.11
+  json_serializable: ^6.8.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/rulesets/
+    - assets/images/cards/
