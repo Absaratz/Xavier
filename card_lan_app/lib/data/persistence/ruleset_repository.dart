@@ -19,4 +19,8 @@ class RulesetRepository {
   Future<void> save(Ruleset ruleset) async {
     await storage.writeRuleset(ruleset.id, jsonEncode(ruleset.toJson()));
   }
+
+  Future<void> delete(String id) async {
+    await storage.deleteRuleset(id);
+  }
 }

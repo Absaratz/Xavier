@@ -20,6 +20,14 @@ class LocalStorageService {
     await File('${dir.path}/$id.json').writeAsString(json);
   }
 
+  Future<void> deleteRuleset(String id) async {
+    final dir = await _rulesetsDir();
+    final file = File('${dir.path}/$id.json');
+    if (await file.exists()) {
+      await file.delete();
+    }
+  }
+
   Future<List<Map<String, dynamic>>> readAllRulesets() async {
     final dir = await _rulesetsDir();
     final files = dir.listSync().whereType<File>();

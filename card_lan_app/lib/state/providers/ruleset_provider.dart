@@ -23,6 +23,12 @@ class RulesetProvider extends ChangeNotifier {
     await loadAll();
   }
 
+  Future<void> delete(Ruleset ruleset) async {
+    await repository.delete(ruleset.id);
+    if (selected?.id == ruleset.id) selected = null;
+    await loadAll();
+  }
+
   void select(Ruleset ruleset) {
     selected = ruleset;
     notifyListeners();
