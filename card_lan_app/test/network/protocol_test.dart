@@ -4,7 +4,7 @@ import 'package:card_lan_app/network/protocol/message_codec.dart';
 
 void main() {
   test('MessageCodec round-trips a NetworkMessage', () {
-    final message = NetworkMessage(
+    const message = NetworkMessage(
       type: 'action_request',
       payload: {'playerId': 'p1', 'cardId': 'card_0'},
     );

@@ -5,11 +5,11 @@ import 'package:card_lan_app/models/brick_types/trigger.dart';
 
 void main() {
   test('Brick round-trips through JSON', () {
-    final brick = Brick(
+    const brick = Brick(
       id: 'b1',
       label: 'Draw two',
-      trigger: const BrickTrigger(type: 'onCardPlayed'),
-      effects: const [BrickEffect(type: 'drawCards', params: {'count': 2})],
+      trigger: BrickTrigger(type: 'onCardPlayed'),
+      effects: [BrickEffect(type: 'drawCards', params: {'count': 2})],
     );
 
     final decoded = Brick.fromJson(brick.toJson());

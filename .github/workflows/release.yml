@@ -19,6 +19,12 @@ jobs:
   build-android:
     name: Build Android release
     runs-on: ubuntu-latest
+    env:
+      # Job-level env is the standard way to gate a step's `if:` on a secret
+      # (secrets can't be referenced directly in `if:`). True once the four
+      # ANDROID_* secrets described in README.md#releasing have been added;
+      # until then the build below falls back to debug signing.
+      HAS_SIGNING: ${{ secrets.ANDROID_KEYSTORE_BASE64 != '' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -36,17 +42,22 @@ jobs:
           channel: stable
           cache: true
 
-      # android/ (and ios/) aren't committed yet — see card_lan_app/README.md.
-      # This fills them in on the runner without touching lib/ or pubspec.yaml,
-      # so the workflow builds today even before those folders are checked in.
-      - name: Ensure platform folders exist
-        run: flutter create --platforms=android --project-name card_lan_app .
-
       - name: Install dependencies
         run: flutter pub get
 
       - name: Run tests
         run: flutter test
+
+      - name: Configure release signing
+        if: env.HAS_SIGNING == 'true'
+        run: |
+          echo "${{ secrets.ANDROID_KEYSTORE_BASE64 }}" | base64 -d > android/upload-keystore.jks
+          cat > android/key.properties <<EOF
+          storePassword=${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          keyPassword=${{ secrets.ANDROID_KEY_PASSWORD }}
+          keyAlias=${{ secrets.ANDROID_KEY_ALIAS }}
+          storeFile=../upload-keystore.jks
+          EOF
 
       - name: Build release APK
         run: |

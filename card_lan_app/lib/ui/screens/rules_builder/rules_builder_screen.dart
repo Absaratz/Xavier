@@ -174,9 +174,8 @@ class _RulesBuilderScreenState extends State<RulesBuilderScreen> {
                 shrinkWrap: true,
                 physics: const NeverScrollableScrollPhysics(),
                 itemCount: _bricks.length,
-                onReorder: (oldIndex, newIndex) {
+                onReorderItem: (oldIndex, newIndex) {
                   setState(() {
-                    if (newIndex > oldIndex) newIndex -= 1;
                     final brick = _bricks.removeAt(oldIndex);
                     _bricks.insert(newIndex, brick);
                   });

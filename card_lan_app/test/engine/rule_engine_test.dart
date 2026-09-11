@@ -13,18 +13,18 @@ import 'package:card_lan_app/models/ruleset.dart';
 
 void main() {
   test('brick with matching trigger and condition skips the next player', () {
-    final ruleset = Ruleset(
+    const ruleset = Ruleset(
       id: 'test',
       name: 'Test ruleset',
       bricks: [
         Brick(
           id: 'b1',
           label: 'Jack skips',
-          trigger: const BrickTrigger(type: 'onCardPlayed'),
-          conditions: const [
+          trigger: BrickTrigger(type: 'onCardPlayed'),
+          conditions: [
             BrickCondition(type: 'cardRankEquals', params: {'rank': 'J'}),
           ],
-          effects: const [BrickEffect(type: 'skipNextPlayer')],
+          effects: [BrickEffect(type: 'skipNextPlayer')],
         ),
       ],
     );
@@ -37,16 +37,16 @@ void main() {
       ),
     );
 
-    final state = GameState(
+    const state = GameState(
       matchId: 'm1',
       rulesetId: 'test',
-      players: const [
+      players: [
         Player(id: 'p1', name: 'A', hand: []),
         Player(id: 'p2', name: 'B', hand: []),
         Player(id: 'p3', name: 'C', hand: []),
       ],
-      drawPile: const [],
-      discardPile: const [],
+      drawPile: [],
+      discardPile: [],
       currentPlayerId: 'p1',
     );
 

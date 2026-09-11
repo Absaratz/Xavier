@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:web_socket_channel/web_socket_channel.dart';
 
 import '../../game/game_controller.dart';

@@ -91,7 +91,7 @@ class _BrickPickerWidgetState extends State<BrickPickerWidget> {
     switch (spec.kind) {
       case ParamKind.cardRank:
         return DropdownButtonFormField<String>(
-          value: params[spec.key] as String? ?? spec.defaultValue as String?,
+          initialValue: params[spec.key] as String? ?? spec.defaultValue as String?,
           decoration: InputDecoration(labelText: spec.label),
           items: [
             for (final rank in BrickCatalog.cardRanks)
@@ -134,7 +134,7 @@ class _BrickPickerWidgetState extends State<BrickPickerWidget> {
               children: [
                 Expanded(
                   child: DropdownButtonFormField<String>(
-                    value: row.type,
+                    initialValue: row.type,
                     items: [
                       for (final d in BrickCatalog.conditions)
                         DropdownMenuItem(value: d.type, child: Text(d.label)),
@@ -178,7 +178,7 @@ class _BrickPickerWidgetState extends State<BrickPickerWidget> {
               children: [
                 Expanded(
                   child: DropdownButtonFormField<String>(
-                    value: row.type,
+                    initialValue: row.type,
                     items: [
                       for (final d in BrickCatalog.effects)
                         DropdownMenuItem(value: d.type, child: Text(d.label)),
@@ -221,7 +221,7 @@ class _BrickPickerWidgetState extends State<BrickPickerWidget> {
             Text('WHEN', style: textTheme.labelLarge),
             const SizedBox(height: 4),
             DropdownButtonFormField<String>(
-              value: _triggerType,
+              initialValue: _triggerType,
               items: [
                 for (final def in BrickCatalog.triggers)
                   DropdownMenuItem(value: def.type, child: Text(def.label)),
