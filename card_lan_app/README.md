@@ -93,7 +93,7 @@ Add them under **Settings → Secrets and variables → Actions → New
 repository secret**, or with the CLI:
 
 ```
-gh secret set ANDROID_KEYSTORE_BASE64 --repo <owner>/<repo> < upload-keystore.b64
+base64 -w0 upload-keystore.jks | gh secret set ANDROID_KEYSTORE_BASE64 --repo <owner>/<repo>
 gh secret set ANDROID_KEYSTORE_PASSWORD --repo <owner>/<repo> --body "..."
 gh secret set ANDROID_KEY_ALIAS --repo <owner>/<repo> --body "upload"
 gh secret set ANDROID_KEY_PASSWORD --repo <owner>/<repo> --body "..."
