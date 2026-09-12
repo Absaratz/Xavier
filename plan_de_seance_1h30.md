@@ -43,6 +43,7 @@ Utiliser ce menu pour :
 | `14_bonus_algo_glouton.py` | Algorithmes gloutons (rendu de monnaie, sélection d'activités) | 20 min | ★★★ | Élève très à l'aise, ouverture Terminale (avec l'ex. 10 ou 11) |
 | `15_bonus_algo_glouton_limites.md` | Limites des algorithmes gloutons (sac à dos 0/1) | 10-15 min | ★★★ | Juste après l'ex. 14, pour discuter à l'oral des limites du glouton |
 | `16_bonus_recursivite_avancee.py` | Récursivité mutuelle + dichotomie récursive + puissance rapide | 20 min | ★★★ | Suite logique des ex. 5 et 10 ; élève très à l'aise, ouverture Terminale |
+| `17_bonus_recursivite_hanoi_fibonacci.py` | Tours de Hanoï, Fibonacci récursif, coût d'un algorithme récursif, mémoïsation | 20-25 min | ★★★ | Autre grand classique de récursivité ; se combine bien avec l'ex. 11 (complexité) et l'ex. 8 (dictionnaires, pour la mémoïsation) |
 
 ## Exemples de combinaisons selon le profil
 
@@ -62,7 +63,12 @@ Utiliser ce menu pour :
   de séance pour montrer que "diviser pour régner" est une idée puissante.
 - **Séance suivante (approfondissement)** : `06_fonctions`, `08_bonus_dictionnaires`,
   `12_bonus_sql`, `13_bonus_synthese_mini_projet`, `14_bonus_algo_glouton` +
-  `15_bonus_algo_glouton_limites`, `16_bonus_recursivite_avancee`.
+  `15_bonus_algo_glouton_limites`, `16_bonus_recursivite_avancee`,
+  `17_bonus_recursivite_hanoi_fibonacci`.
+- **Séance dédiée "récursivité"** : `10_bonus_recursivite_decouverte` →
+  `17_bonus_recursivite_hanoi_fibonacci` → `16_bonus_recursivite_avancee`
+  (progression naturelle : découverte → deux grands classiques → récursivité
+  mutuelle et diviser pour régner).
 
 ## Conseils pédagogiques
 
