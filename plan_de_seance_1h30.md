@@ -42,6 +42,7 @@ Utiliser ce menu pour :
 | `13_bonus_synthese_mini_projet.py` | Mini-projet pendu (synthèse) | 20-25 min | ★★★ | Fin de séance s'il reste du temps, ou défi à la maison |
 | `14_bonus_algo_glouton.py` | Algorithmes gloutons (rendu de monnaie, sélection d'activités) | 20 min | ★★★ | Élève très à l'aise, ouverture Terminale (avec l'ex. 10 ou 11) |
 | `15_bonus_algo_glouton_limites.md` | Limites des algorithmes gloutons (sac à dos 0/1) | 10-15 min | ★★★ | Juste après l'ex. 14, pour discuter à l'oral des limites du glouton |
+| `16_bonus_recursivite_avancee.py` | Récursivité mutuelle + dichotomie récursive + puissance rapide | 20 min | ★★★ | Suite logique des ex. 5 et 10 ; élève très à l'aise, ouverture Terminale |
 
 ## Exemples de combinaisons selon le profil
 
@@ -55,9 +56,13 @@ Utiliser ce menu pour :
   → `15_bonus_algo_glouton_limites` (les deux s'enchaînent bien pour une vraie
   ouverture sur la Terminale, mais comptent ~30-35 min à eux deux : à réserver
   aux séances où le socle a été bouclé rapidement).
+- **Élève à l'aise qui a bien accroché sur la récursivité (ex. 10) et la
+  dichotomie (ex. 5)** : enchaîner directement sur `16_bonus_recursivite_avancee`,
+  qui combine les deux pour aboutir à la puissance rapide — bonne conclusion
+  de séance pour montrer que "diviser pour régner" est une idée puissante.
 - **Séance suivante (approfondissement)** : `06_fonctions`, `08_bonus_dictionnaires`,
   `12_bonus_sql`, `13_bonus_synthese_mini_projet`, `14_bonus_algo_glouton` +
-  `15_bonus_algo_glouton_limites`.
+  `15_bonus_algo_glouton_limites`, `16_bonus_recursivite_avancee`.
 
 ## Conseils pédagogiques
 
